@@ -8,18 +8,16 @@ public class RadioTest {
 
     @Test
     public void upChannel() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(5);
+        Radio radio = new Radio(8,9);
         radio.upChannel();
-        assertEquals(6, radio.getCurrentChannel());
+        assertEquals(9, radio.getCurrentChannel());
     }
 
     @Test
     public void downChannel() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(6);
+        Radio radio = new Radio(8, 9);
         radio.downChannel();
-        assertEquals(5, radio.getCurrentChannel());
+        assertEquals(7, radio.getCurrentChannel());
     }
 
     @Test
@@ -41,27 +39,24 @@ public class RadioTest {
     @Test
     public void upVolumeFromMax() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.upVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
     public void downVolumeFromMin() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(0);
         radio.downVolume();
         assertEquals(0, radio.getCurrentVolume());
     }
 
     @Test
     public void downChannelFromMin() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(0);
+        Radio radio = new Radio(9, 90, 0, 100, 9, 20);
         radio.downChannel();
-        assertEquals(9, radio.getCurrentChannel());
+        assertEquals(90, radio.getCurrentChannel());
     }
-
 
     @Test
     public void upChannelFromMax() {
@@ -74,17 +69,17 @@ public class RadioTest {
     @Test
     public void upVolumeAsValue() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(25);
+        radio.setCurrentVolume(250);
         radio.upVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
     public void downVolumeAsValue() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(25);
+        radio.setCurrentVolume(250);
         radio.downVolume();
-        assertEquals(9, radio.getCurrentVolume());
+        assertEquals(99, radio.getCurrentVolume());
     }
 
     @Test
